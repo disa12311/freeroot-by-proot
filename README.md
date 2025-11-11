@@ -22,17 +22,18 @@ This shell script is designed to automate the installation of  a lightweight Ubu
 
 2. Run the installer script:
 
-# For non-interactive users (automatic installation)
+ For non-interactive users (automatic installation)
 
     ```sh
-bash noninteractive.sh
+    bash noninteractive.sh
     ```
+
     or
 
-# For root users (with prompt)
+ For root users (with prompt)
 
     ```sh
-bash root.sh
+    bash root.sh
     ```
 
 ## Supported Architectures
