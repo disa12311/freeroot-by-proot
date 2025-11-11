@@ -1,8 +1,8 @@
-# Disa12311 Installer
+# Ubuntu Rootfs Installation Script
 
 ## Overview
 
-This shell script is designed to automate the installation of Disa12311, a lightweight Ubuntu environment using Proot.
+This shell script is designed to automate the installation of  a lightweight Ubuntu environment using Proot.
 
 ## Prerequisites
 
@@ -16,18 +16,23 @@ This shell script is designed to automate the installation of Disa12311, a light
 1. Clone the repository:
 
     ```sh
-    git clone https://github.com/foxytouxxx/freeroot.git
-    cd freeroot
+    git clone https://github.com/disa12311/freeroot-by-proot.git
+    cd freeroot-by-proot
     ```
 
 2. Run the installer script:
 
+# For non-interactive users (automatic installation)
+
     ```sh
-    ./root.sh
+bash noninteractive.sh
     ```
     or
+
+# For root users (with prompt)
+
     ```sh
-    bash root.sh
+bash root.sh
     ```
 
 ## Supported Architectures
@@ -37,12 +42,7 @@ This shell script is designed to automate the installation of Disa12311, a light
 
 ## License
 
-This Foxytoux Installer script is released under the [MIT License](LICENSE).
-
-## Credits
-
-Foxytoux Installer is developed and maintained by RecodeStudios.Cloud.
-This installer has been made possible thanks to [dxomg](https://github.com/dxomg) for his proot code
+This Ubuntu Rootfs Installation Script script is released under the [MIT License](LICENSE).
 
 ---
 
