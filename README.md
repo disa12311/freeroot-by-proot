@@ -27,9 +27,7 @@ This shell script is designed to automate the installation of  a lightweight Ubu
     ```sh
     bash noninteractive.sh
     ```
-
     or
-
  For root users (with prompt)
 
     ```sh
