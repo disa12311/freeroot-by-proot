@@ -24,15 +24,15 @@ This shell script is designed to automate the installation of  a lightweight Ubu
 
  For non-interactive users (automatic installation)
 
-    ```sh
+ ```sh
     bash noninteractive.sh
-    ```
+ ```
     or
  For root users (with prompt)
 
-    ```sh
+ ```sh
     bash root.sh
-    ```
+ ```
 
 ## Supported Architectures
 
