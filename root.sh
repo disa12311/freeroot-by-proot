@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Configuration
 ROOTFS_DIR=$(pwd)
@@ -8,11 +8,11 @@ TIMEOUT=1
 ARCH=$(uname -m)
 
 # Colors
-CYAN='\033[0;36m'
-GREEN='\033[0;32m'
-RED='\033[0;31m'
-YELLOW='\033[1;33m'
-RESET='\033[0m'
+CYAN='\e[0;36m'
+GREEN='\e[0;32m'
+RED='\e[0;31m'
+YELLOW='\e[1;33m'
+RESET='\e[0m'
 
 # Determine architecture
 case "$ARCH" in
@@ -23,26 +23,26 @@ case "$ARCH" in
     ARCH_ALT=arm64
     ;;
   *)
-    printf "${RED}[ERROR]${RESET} Unsupported CPU architecture: ${ARCH}\n"
+    echo -e "${RED}[ERROR]${RESET} Unsupported CPU architecture: ${ARCH}"
     exit 1
     ;;
 esac
 
 # Logging functions
 log_info() {
-  printf "${CYAN}[INFO]${RESET} %s\n" "$1"
+  echo -e "${CYAN}[INFO]${RESET} $1"
 }
 
 log_success() {
-  printf "${GREEN}[SUCCESS]${RESET} %s\n" "$1"
+  echo -e "${GREEN}[SUCCESS]${RESET} $1"
 }
 
 log_error() {
-  printf "${RED}[ERROR]${RESET} %s\n" "$1"
+  echo -e "${RED}[ERROR]${RESET} $1"
 }
 
 log_warn() {
-  printf "${YELLOW}[WARN]${RESET} %s\n" "$1"
+  echo -e "${YELLOW}[WARN]${RESET} $1"
 }
 
 # Download with retry
@@ -65,10 +65,10 @@ download_file() {
 # Main installation process
 if [ ! -e "$ROOTFS_DIR/.installed" ]; then
   clear
-  printf "${CYAN}╔════════════════════════════════════════════════╗${RESET}\n"
-  printf "${CYAN}║${RESET}     Ubuntu Rootfs Installation Script       ${CYAN}║${RESET}\n"
-  printf "${CYAN}╚════════════════════════════════════════════════╝${RESET}\n"
-  printf "\n"
+  echo -e "${CYAN}╔════════════════════════════════════════════════╗${RESET}"
+  echo -e "${CYAN}║${RESET}     Ubuntu Rootfs Installation Script       ${CYAN}║${RESET}"
+  echo -e "${CYAN}╚════════════════════════════════════════════════╝${RESET}"
+  echo ""
   
   # Ask user for installation
   printf "${CYAN}?${RESET} Install Ubuntu 20.04 rootfs? [Y/n]: "
@@ -146,19 +146,19 @@ if [ ! -e "$ROOTFS_DIR/.installed" ]; then
   rm -rf /tmp/rootfs.tar.gz /tmp/sbin
   touch "$ROOTFS_DIR/.installed"
   
-  printf "\n"
-  printf "${GREEN}╔════════════════════════════════════════════════╗${RESET}\n"
-  printf "${GREEN}║${RESET}          Installation Completed! ✓           ${GREEN}║${RESET}\n"
-  printf "${GREEN}╚════════════════════════════════════════════════╝${RESET}\n"
-  printf "\n"
+  echo ""
+  echo -e "${GREEN}╔════════════════════════════════════════════════╗${RESET}"
+  echo -e "${GREEN}║${RESET}          Installation Completed! ✓           ${GREEN}║${RESET}"
+  echo -e "${GREEN}╚════════════════════════════════════════════════╝${RESET}"
+  echo ""
   
   sleep 2
 fi
 
 # Launch proot environment
 clear
-printf "${CYAN}Starting Ubuntu environment...${RESET}\n"
-printf "\n"
+echo -e "${CYAN}Starting Ubuntu environment...${RESET}"
+echo ""
 
 exec "$ROOTFS_DIR/usr/local/bin/proot" \
   --rootfs="${ROOTFS_DIR}" \
