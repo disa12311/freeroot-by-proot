@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Configuration
 ROOTFS_DIR=$(pwd)
@@ -8,11 +8,11 @@ TIMEOUT=1
 ARCH=$(uname -m)
 
 # Colors
-CYAN='\e[0;36m'
-GREEN='\e[0;32m'
-RED='\e[0;31m'
-YELLOW='\e[1;33m'
-RESET='\e[0m'
+CYAN='\033[0;36m'
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+YELLOW='\033[1;33m'
+RESET='\033[0m'
 
 # Determine architecture
 case "$ARCH" in
@@ -97,17 +97,17 @@ if [ ! -e "$ROOTFS_DIR/.installed" ]; then
   # Determine proot binary based on architecture
   case "$ARCH" in
     x86_64)
-      local proot_file="proot-v5.3.0-x86_64"
+      proot_file="proot-v5.3.0-x86_64"
       ;;
     aarch64)
-      local proot_file="proot-v5.3.0-aarch64"
+      proot_file="proot-v5.3.0-aarch64"
       ;;
   esac
   
-  local proot_url="https://raw.githubusercontent.com/disa12311/freeroot-by-proot/main/${proot_file}"
-  local proot_path="$ROOTFS_DIR/usr/local/bin/proot"
+  proot_url="https://raw.githubusercontent.com/disa12311/freeroot-by-proot/main/${proot_file}"
+  proot_path="$ROOTFS_DIR/usr/local/bin/proot"
   
-  local attempt=0
+  attempt=0
   while [ $attempt -lt $MAX_RETRIES ]; do
     rm -f "$proot_path"
     
